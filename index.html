@@ -4,89 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoranjan Patra | DV Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family: Arial, sans-serif; background:#0f172a; color:#e2e8f0; }
-    header { padding:20px; text-align:center; background:#1e293b; }
-    h1 { margin:0; }
-    section { padding:20px; }
-    .card { background:#1e293b; padding:15px; margin:10px 0; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.3);} 
+    body { margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#0f172a,#020617); color:#e2e8f0; }
+    header { padding:40px 20px; text-align:center; }
+    h1 { margin:0; font-size:28px; }
+    p.subtitle { color:#38bdf8; }
+    .container { max-width:900px; margin:auto; padding:20px; }
+    .card { background:rgba(30,41,59,0.7); backdrop-filter:blur(10px); padding:20px; margin:15px 0; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:transform 0.2s; }
+    .card:hover { transform:translateY(-5px); }
+    h2 { border-left:4px solid #38bdf8; padding-left:10px; }
     a { color:#38bdf8; text-decoration:none; }
-    .container { max-width:800px; margin:auto; }
-    footer { text-align:center; padding:15px; background:#1e293b; margin-top:20px; }
+    .skills span { display:inline-block; background:#1e293b; margin:5px; padding:8px 12px; border-radius:20px; font-size:12px; }
+    footer { text-align:center; padding:20px; opacity:0.7; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>B Manoranjan Patra</h1>
-  <p>Design Verification Engineer | SystemVerilog | UVM | PCIe | AXI</p>
+  <p class="subtitle">Design Verification Engineer | UVM | SystemVerilog | PCIe | AXI</p>
 </header>
 
 <div class="container">
 
-<section>
+<section class="card">
   <h2>About Me</h2>
-  <div class="card">
-    <p>
-      Design Verification Engineer with ~3 years of experience in pre-silicon verification using SystemVerilog and UVM. Experienced in verifying complex protocols like PCIe Gen4 and AXI4, debugging RTL, and building scalable verification environments.
-    </p>
-  </div>
+  <p>3+ years of experience in pre-silicon verification with strong expertise in UVM methodology, SystemVerilog, and protocol verification (PCIe, AXI). Passionate about debugging complex RTL issues and building scalable verification environments.</p>
 </section>
 
-<section>
+<section class="card">
   <h2>Experience</h2>
-  <div class="card">
-    <h3>Design Verification Engineer - SiyaCon Technologies (2023 - Present)</h3>
-    <ul>
-      <li>Developed SystemVerilog/UVM based testbenches</li>
-      <li>Built drivers, monitors, scoreboards, and coverage collectors</li>
-      <li>Performed RTL debugging using Cadence SimVision</li>
-      <li>Worked on IP and SoC level verification</li>
-      <li>Handled regression, testcase development, and reporting</li>
-    </ul>
-  </div>
+  <h3>SiyaCon Technologies</h3>
+  <p>Design Verification Engineer (2023 - Present)</p>
+  <ul>
+    <li>Developed UVM testbench components: drivers, monitors, scoreboards</li>
+    <li>Performed RTL debugging using Cadence SimVision</li>
+    <li>Worked on IP & SoC level verification</li>
+    <li>Executed regression and testcase development</li>
+  </ul>
 </section>
 
-<section>
+<section class="card">
   <h2>Projects</h2>
-  <div class="card">
-    <h3>HUDSON SoC (Client: ADI)</h3>
-    <ul>
-      <li>Verified OTP (One-Time Programmable memory)</li>
-      <li>Worked on PINMUX functionality verification</li>
-      <li>Verified GPIO controller (interrupts, direction, interface)</li>
-    </ul>
-  </div>
+  <h3>HUDSON SoC (Client: ADI)</h3>
+  <ul>
+    <li>Verified OTP memory functionality</li>
+    <li>Validated PINMUX configuration</li>
+    <li>Tested GPIO controller (interrupts & direction control)</li>
+  </ul>
 </section>
 
-<section>
+<section class="card">
   <h2>Skills</h2>
-  <div class="card">
-    <p>SystemVerilog | UVM | PCIe Gen4 | AXI4 | RTL Debugging | Functional Coverage | Cadence SimVision</p>
+  <div class="skills">
+    <span>SystemVerilog</span>
+    <span>UVM</span>
+    <span>PCIe Gen4</span>
+    <span>AXI4</span>
+    <span>RTL Debugging</span>
+    <span>Functional Coverage</span>
+    <span>Python</span>
   </div>
 </section>
 
-<section>
-  <h2>Education</h2>
-  <div class="card">
-    <p>B.E. Electronics & Telecommunication - IGIT Sarang (2021)</p>
-  </div>
-</section>
-
-<section>
+<section class="card">
   <h2>Contact</h2>
-  <div class="card">
-    <p>Email: manoranjanmano111@gmail.com</p>
-    <p>Phone: +91 8018598188</p>
-    <p>LinkedIn: Add your link</p>
-    <p>GitHub: Add your link</p>
-  </div>
+  <p>Email: manoranjanmano111@gmail.com</p>
+  <p>Phone: +91 8018598188</p>
+  <p><a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
 </section>
 
 </div>
 
 <footer>
-  <p>© 2026 B Manoranjan Patra</p>
+  <p>© 2026 Manoranjan Patra</p>
 </footer>
 
 </body>
