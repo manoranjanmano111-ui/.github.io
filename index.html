@@ -17,7 +17,6 @@
     a { color:#38bdf8; text-decoration:none; }
     .skills span { display:inline-block; background:#1e293b; margin:5px; padding:8px 12px; border-radius:20px; font-size:12px; }
 
-    /* Project Cards */
     .projects { display:grid; grid-template-columns:1fr; gap:15px; }
     .project-card { background:#1e293b; padding:15px; border-radius:12px; border:1px solid rgba(56,189,248,0.3); }
     .project-card h3 { margin-top:0; }
@@ -57,20 +56,23 @@
     </div>
 
     <div class="project-card">
-      <h3>AXI Protocol Verification Environment</h3>
+      <h3>Dispatch Engine Verification</h3>
       <ul>
-        <li>Developed UVM-based testbench including driver, monitor, and scoreboard</li>
-        <li>Implemented constrained random stimulus and functional coverage</li>
-        <li>Handled out-of-order transaction verification scenarios</li>
+        <li>Verified dispatch engine handling multiple request queues and scheduling</li>
+        <li>Developed UVM components including driver, monitor, and scoreboard</li>
+        <li>Implemented checks for correct dispatch ordering and arbitration logic</li>
+        <li>Debugged corner cases related to data flow and timing issues</li>
       </ul>
     </div>
 
     <div class="project-card">
-      <h3>PCIe Transaction Layer Validation</h3>
+      <h3>PCIe Protocol Verification</h3>
       <ul>
-        <li>Worked on TLP packet validation and protocol compliance checks</li>
-        <li>Analyzed completion packets and error scenarios</li>
-        <li>Debugged complex protocol-level issues</li>
+        <li>Worked on PCIe Transaction Layer Packet (TLP) validation and checking</li>
+        <li>Verified LTSSM state transitions and link training sequences</li>
+        <li>Analyzed completion packets (with/without data) and error handling</li>
+        <li>Handled ordered sets (TS1/TS2), link initialization, and lane negotiation</li>
+        <li>Debugged protocol-level issues across Transaction and Data Link layers</li>
       </ul>
     </div>
 
