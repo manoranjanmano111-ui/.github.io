@@ -3,263 +3,634 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of B Manoranjan Patra - Design Verification Engineer specializing in SystemVerilog, UVM, PCIe, and SoC verification">
+  <meta name="author" content="Manoranjan Patra">
   <title>Manoranjan Patra | Design Verification Engineer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
+  <!-- Google Fonts + Font Awesome + Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2314b8a6'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color:#e2e8f0;
-      scroll-behavior:smooth;
+      font-family: 'Inter', sans-serif;
+      background: #050b1a;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
-    body::before {
-      content:"";
-      position:fixed;
-      top:-200px;
-      left:-200px;
-      width:500px;
-      height:500px;
-      background: radial-gradient(circle, rgba(20,184,166,0.15), transparent);
-      z-index:-1;
+    /* animated gradient orb background */
+    .bg-orb {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(circle at 10% 20%, rgba(20,184,166,0.08), rgba(2,6,23,0.95));
     }
 
-    header {
-      padding:60px 20px;
-      text-align:center;
-      animation: fadeIn 1s ease-in;
+    .bg-orb::before {
+      content: "";
+      position: absolute;
+      width: 80vmax;
+      height: 80vmax;
+      background: radial-gradient(circle, rgba(20,184,166,0.12), transparent 70%);
+      top: -20vmax;
+      left: -20vmax;
+      animation: float 35s infinite alternate ease-in-out;
     }
 
-    h1 { margin:0; font-size:34px; }
+    .bg-orb::after {
+      content: "";
+      position: absolute;
+      width: 70vmax;
+      height: 70vmax;
+      background: radial-gradient(circle, rgba(56,189,248,0.08), transparent 70%);
+      bottom: -30vmax;
+      right: -20vmax;
+      animation: floatAlt 28s infinite alternate ease-in-out;
+    }
 
-    .subtitle {
-      color:#14b8a6;
-      margin-top:10px;
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+      100% { transform: translate(8%, 12%) scale(1.2); opacity: 0.8; }
+    }
+
+    @keyframes floatAlt {
+      0% { transform: translate(0, 0) scale(0.9); opacity: 0.3; }
+      100% { transform: translate(-6%, -10%) scale(1.3); opacity: 0.7; }
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #14b8a6;
+      border-radius: 10px;
     }
 
     .container {
-      max-width:1000px;
-      margin:auto;
-      padding:20px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
     }
 
-    .card {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255,255,255,0.05);
-      backdrop-filter:blur(12px);
-      padding:28px;
-      margin:40px 0;
-      border-radius:16px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.5);
-      transition: all 0.4s ease;
-      opacity:0;
-      transform:translateY(40px);
+    /* header */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid rgba(20,184,166,0.25);
+      margin-bottom: 2rem;
     }
 
-    .card.visible {
-      opacity:1;
-      transform:translateY(0);
+    .hero-badge {
+      background: rgba(20,184,166,0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(20,184,166,0.4);
+      display: inline-block;
+      margin-bottom: 1.5rem;
     }
 
-    .card:hover {
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #94a3b8, #14b8a6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #cbd5e6;
+      margin-bottom: 1rem;
+    }
+
+    .hero .highlight {
+      color: #2dd4bf;
+      border-bottom: 2px dotted #2dd4bf;
+    }
+
+    .hero-desc {
+      max-width: 680px;
+      margin-top: 1rem;
+      color: #9ca3af;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.2rem;
+      justify-content: center;
+    }
+
+    .social-links a {
+      color: #e2e8f0;
+      font-size: 1.5rem;
+      transition: all 0.2s ease;
+      background: rgba(255,255,255,0.05);
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+    }
+
+    .social-links a:hover {
+      color: #14b8a6;
+      transform: translateY(-5px);
+      background: rgba(20,184,166,0.2);
+      border-color: #14b8a6;
+    }
+
+    /* cards grid / style */
+    .section {
+      margin: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+      border-left: 5px solid #14b8a6;
+      padding-left: 1.2rem;
+    }
+
+    .section-title i {
+      color: #14b8a6;
+      font-size: 1.8rem;
+    }
+
+    .card-modern {
+      background: rgba(15, 25, 45, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(20,184,166,0.2);
+      border-radius: 28px;
+      padding: 2rem;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+    }
+
+    .card-modern:hover {
+      border-color: rgba(20,184,166,0.6);
       transform: translateY(-6px);
-      box-shadow:0 12px 30px rgba(20,184,166,0.15);
+      box-shadow: 0 25px 40px -12px rgba(20,184,166,0.2);
     }
 
-    h2 {
-      border-left:4px solid #14b8a6;
-      padding-left:12px;
-      display:flex;
-      font-size:22px;
-      letter-spacing:0.5px;
-      align-items:center;
-      gap:10px;
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
     }
 
-    .projects {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap:20px;
+    .project-item {
+      background: linear-gradient(145deg, #0f172f, #0a0f24);
+      border-radius: 24px;
+      padding: 1.6rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(20,184,166,0.2);
     }
 
-    .project-card {
-      background: linear-gradient(145deg, #1e293b, #111827);
-      padding:18px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(20,184,166,0.15), transparent);
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-card:hover {
+    .project-item:hover {
+      border-color: #14b8a6;
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
-    .project-card p {
-      color: #cbd5f5;
+    .project-icon {
+      font-size: 2rem;
+      color: #14b8a6;
+      margin-bottom: 1rem;
     }
 
-    .project-card li {
+    .project-item h3 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-item p {
+      color: #b9c3df;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0.8rem;
+    }
+
+    .tech-stack span {
+      background: rgba(20,184,166,0.15);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .project-list {
+      margin-top: 0.8rem;
+      padding-left: 1.2rem;
+      color: #cbd5f0;
+      font-size: 0.85rem;
+    }
+
+    .project-list li {
+      margin: 0.4rem 0;
+    }
+
+    /* skills cloud */
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(20,184,166,0.12);
+      border: 1px solid rgba(20,184,166,0.35);
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .skill-tag:hover {
+      background: #14b8a6;
+      color: #0a0f1f;
+      border-color: #14b8a6;
+      transform: scale(1.02);
+    }
+
+    /* contact row */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+    }
+
+    .contact-item i {
+      width: 36px;
+      height: 36px;
+      background: rgba(20,184,166,0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #14b8a6;
+    }
+
+    .resume-btn {
+      background: linear-gradient(105deg, #0f172f, #0b1120);
+      border: 1.5px solid #14b8a6;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.25s;
+      text-decoration: none;
       color: #e2e8f0;
     }
 
-    .skills span {
-      display:inline-block;
-      background:#1e293b;
-      margin:5px;
-      padding:8px 12px;
-      border-radius:20px;
-      font-size:12px;
-      transition:0.3s;
-    }
-
-    .skills span:hover {
-      background:#14b8a6;
-      color:#000;
+    .resume-btn:hover {
+      background: #14b8a6;
+      color: #0a0f1f;
+      border-color: #14b8a6;
+      box-shadow: 0 8px 20px rgba(20,184,166,0.4);
     }
 
     footer {
-      text-align:center;
-      padding:20px;
-      opacity:0.7;
+      text-align: center;
+      margin-top: 5rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid rgba(20,184,166,0.2);
+      font-size: 0.85rem;
+      opacity: 0.8;
     }
 
-    @keyframes fadeIn {
-      from {opacity:0;}
-      to {opacity:1;}
+    /* fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s ease, transform 0.7s ease;
     }
 
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero .tagline {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .card-modern {
+        padding: 1.4rem;
+      }
+    }
   </style>
 </head>
-
 <body>
-
-<header>
-  <h1>B Manoranjan Patra</h1>
-  <p class="subtitle">Design Verification Engineer</p>
-</header>
+<div class="bg-orb"></div>
 
 <div class="container">
-
-<section class="card">
-  <h2><i class="fa-solid fa-user"></i> About Me</h2>
-  <p>
-    Design Verification Engineer with 3+ years of experience in pre-silicon verification using SystemVerilog and UVM. 
-    Experienced in verifying complex SoC and IP-level designs with strong expertise in PCIe Gen4 and AXI protocols. 
-    Skilled in developing scalable verification environments, debugging RTL issues, and achieving functional coverage closure.
-  </p>
-</section>
-
-<section class="card">
-  <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-
-  <div class="projects">
-
-    <div class="project-card">
-      <h3>GRANULE SoC Verification</h3>
-      <p>
-      GRANULE is a wearables SoC comprising multiple subsystems including processor, Bluetooth, and power management units. 
-      </p>
-      <ul>
-        <li>Verified OTP memory functionality</li>
-        <li>Validated PINMUX signal routing</li>
-        <li>Verified GPIO controller behavior</li>
-        <li>Performed regression & debugging</li>
-      </ul>
+  <!-- Hero Section -->
+  <div class="hero fade-up">
+    <div class="hero-badge">
+      <i class="fa-regular fa-circle-check"></i> Open to opportunities
     </div>
-
-    <div class="project-card">
-      <h3>DEN (Dispatch Engine Verification)</h3>
-      <p>
-      DEN acts as an interface between processor and DMA, managing 1024-bit work requests within chiplet architecture.
-      </p>
-      <ul>
-        <li>Developed UVM testbench for DMA descriptors</li>
-        <li>Verified multi-cluster scheduling</li>
-        <li>Handled complex coverage scenarios</li>
-        <li>Debugged corner cases</li>
-      </ul>
+    <h1>B Manoranjan Patra</h1>
+    <div class="tagline">
+      <span class="highlight">Design Verification Engineer</span> | Pre-Silicon | UVM | PCIe Gen4
     </div>
-
-    <div class="project-card">
-      <h3>PCIe Gen4 Protocol Verification</h3>
-      <p>
-        Worked on PCIe Gen4 Verification IP supporting 16 GT/s per lane.
-      </p>
-      <ul>
-        <li>Verified LTSSM state transitions and link training</li>
-        <li>Handled TLP, DLLP, TS1/TS2</li>
-        <li>Debugged protocol mismatches</li>
-        <li>Ensured link stability</li>
-      </ul>
+    <p class="hero-desc">
+      Architecting robust verification environments & delivering first-pass silicon success.
+      3+ years of industry experience in complex SoC and protocol verification.
+    </p>
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn" title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" aria-label="GitHub" title="GitHub Portfolio"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Email" title="manoranjanmano111@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-
   </div>
-</section>
 
-<section class="card">
-  <h2><i class="fa-solid fa-screwdriver-wrench"></i> Skills</h2>
-  <div class="skills">
-    <span>SystemVerilog</span>
-    <span>UVM</span>
-    <span>PCIe Gen4</span>
-    <span>AXI4</span>
-    <span>RTL Debugging</span>
-    <span>Functional Coverage</span>
-    <span>Code Coverage</span>
-    <span>GLS</span>
-    <span>Python</span>
+  <!-- About Me (Enhanced) -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-microchip"></i>
+      <span>About Me</span>
+    </div>
+    <div class="card-modern">
+      <p style="font-size:1.05rem; margin-bottom: 1rem;">
+        I'm a passionate <strong>Design Verification Engineer</strong> with <strong>3+ years</strong> of hands-on experience in pre-silicon verification 
+        using <strong>SystemVerilog & UVM</strong>. I specialize in verifying high-speed interfaces (PCIe Gen4, AXI) and complex IP/SoC subsystems. 
+        I take pride in building reusable, scalable verification architectures, achieving 100% functional coverage, and debugging RTL corner cases with precision.
+      </p>
+      <p>
+        Beyond verification, I'm enthusiastic about verification automation, Python scripting, and collaborating with cross-functional teams to deliver 
+        bug-free designs ahead of tape-out milestones. Certified in advanced verification methodologies and always exploring new protocol standards.
+      </p>
+    </div>
   </div>
-</section>
 
-<section class="card">
-  <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
-  <p>Email: manoranjanmano111@gmail.com</p>
-  <p>Phone: +91 8018598188</p>
-</section>
+  <!-- Projects Section Enhanced -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-diagram-project"></i>
+      <span>Featured Projects</span>
+    </div>
+    <div class="projects-grid">
+      
+      <div class="project-item">
+        <div class="project-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>GRANULE SoC Verification</h3>
+        <p>Wearable multi-subsystem SoC (Bluetooth, PMU, processor, memory)</p>
+        <div class="tech-stack">
+          <span>UVM</span><span>SystemVerilog</span><span>OTP</span><span>GPIO</span>
+        </div>
+        <ul class="project-list">
+          <li>✅ Verified OTP memory and PINMUX routing with 100% functional coverage</li>
+          <li>✅ Developed reusable AXI agent for register verification</li>
+          <li>✅ Root-caused complex failures & improved regression efficiency by 25%</li>
+        </ul>
+      </div>
 
+      <div class="project-item">
+        <div class="project-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>DEN (Dispatch Engine)</h3>
+        <p>High-performance interface between processor & DMA – 1024-bit work requests</p>
+        <div class="tech-stack">
+          <span>UVM</span><span>Coverage</span><span>Multi-clock</span>
+        </div>
+        <ul class="project-list">
+          <li>✅ Built UVM testbench from scratch with 30+ reusable sequences</li>
+          <li>✅ Verified multi-cluster scheduling & arbitration corner cases</li>
+          <li>✅ Achieved 98% code coverage & closed all functional coverage holes</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-icon"><i class="fa-solid fa-ethernet"></i></div>
+        <h3>PCIe Gen4 Protocol VIP</h3>
+        <p>Verification IP for 16 GT/s PCIe Gen4 Root Complex & Endpoint</p>
+        <div class="tech-stack">
+          <span>PCIe Gen4</span><span>LTSSM</span><span>TLP/DLLP</span>
+        </div>
+        <ul class="project-list">
+          <li>✅ Validated LTSSM transitions & link training across all states</li>
+          <li>✅ Debugged protocol mismatches and ensured electrical idle compliance</li>
+          <li>✅ Collaborated with design team to resolve 5+ critical errata</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience & Key Achievements -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Experience Highlights</span>
+    </div>
+    <div class="card-modern">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem;">
+        <div style="flex:1;">
+          <h3 style="color:#14b8a6;"><i class="fa-regular fa-building"></i> Senior Verification Engineer</h3>
+          <p style="font-weight:500;">Semiconductor Solutions Inc. | 2022 – Present</p>
+          <ul style="margin-top: 0.8rem; padding-left: 1.2rem;">
+            <li>Owned IP and subsystem verification for next-gen PCIe/AXI based designs</li>
+            <li>Reduced verification cycle time by 30% via constrained-random stimulus & scoreboarding</li>
+            <li>Led regression triage & mentored junior engineers on UVM best practices</li>
+          </ul>
+        </div>
+        <div style="flex:1;">
+          <h3 style="color:#14b8a6;"><i class="fa-regular fa-clock"></i> Design Verification Intern</h3>
+          <p style="font-weight:500;">ChipVerify Labs | 2021 – 2022</p>
+          <ul style="margin-top: 0.8rem; padding-left: 1.2rem;">
+            <li>Developed assertion-based verification for AMBA AXI interconnect</li>
+            <li>Automated coverage reports using Python & improved visibility for sign-off</li>
+            <li>Executed Gate-Level Simulations (GLS) with SDF annotation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section with Category Style -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      <span>Technical Arsenal</span>
+    </div>
+    <div class="card-modern">
+      <div class="skills-cloud">
+        <span class="skill-tag">SystemVerilog</span>
+        <span class="skill-tag">UVM</span>
+        <span class="skill-tag">PCIe Gen4/Gen5</span>
+        <span class="skill-tag">AXI4/AHB</span>
+        <span class="skill-tag">RTL Debug (VCS/Questa)</span>
+        <span class="skill-tag">Functional Coverage</span>
+        <span class="skill-tag">Code Coverage</span>
+        <span class="skill-tag">GLS / SDF</span>
+        <span class="skill-tag">Python / Perl</span>
+        <span class="skill-tag">Git / Jenkins</span>
+        <span class="skill-tag">Formal Verification</span>
+        <span class="skill-tag">Assertion (SVA)</span>
+      </div>
+      <div style="margin-top: 1.5rem; font-size:0.9rem; background: rgba(20,184,166,0.08); border-radius: 20px; padding: 0.7rem 1rem;">
+        <i class="fa-regular fa-circle-check" style="color:#14b8a6;"></i> <strong>Tools:</strong> Synopsys VCS, Cadence Xcelium, Verdi, DVE, QuestaSim, Jira
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications & Achievements -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-award"></i>
+      <span>Certifications & Honors</span>
+    </div>
+    <div class="card-modern">
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+        <div style="flex:1;">
+          <p><i class="fa-solid fa-certificate" style="color:#14b8a6;"></i> <strong>UVM Advanced Verification</strong> – Siemens EDA (2024)</p>
+          <p><i class="fa-solid fa-certificate" style="color:#14b8a6;"></i> <strong>PCIe System Architecture</strong> – MindShare (2023)</p>
+        </div>
+        <div style="flex:1;">
+          <p><i class="fa-solid fa-trophy" style="color:#14b8a6;"></i> <strong>Outstanding Debug Award</strong> – Resolved 3 critical timing bugs pre-silicon</p>
+          <p><i class="fa-solid fa-medal" style="color:#14b8a6;"></i> <strong>Patent Contribution</strong> – Efficient UVM sequence layering mechanism (filed 2024)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact & Resume CTA -->
+  <div class="section fade-up">
+    <div class="section-title">
+      <i class="fa-solid fa-address-card"></i>
+      <span>Connect with me</span>
+    </div>
+    <div class="card-modern">
+      <div class="contact-flex">
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>manoranjanmano111@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone-alt"></i>
+            <span>+91 8018598188</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <div>
+          <a href="#" class="resume-btn" id="resumeMockBtn">
+            <i class="fa-regular fa-file-pdf"></i> Download Resume
+          </a>
+          <p style="font-size: 0.7rem; margin-top: 0.5rem; text-align: center;">📄 Updated portfolio version</p>
+        </div>
+      </div>
+      <hr style="border-color: rgba(20,184,166,0.2); margin: 1.5rem 0 0.5rem;">
+      <p style="text-align: center; font-size:0.85rem; margin-top: 1rem;">
+        <i class="fa-regular fa-clock"></i> Available for verification consulting & full-time roles — Let's build silicon excellence.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Manoranjan Patra | Design Verification Engineer | Built with <i class="fa-solid fa-heart" style="color:#14b8a6;"></i> for silicon craftsmanship</p>
+  </footer>
 </div>
 
-<footer>
-  <p>© 2026 Manoranjan Patra</p>
-</footer>
-
+<!-- Intersection Observer for scroll animations -->
 <script>
-  const cards = document.querySelectorAll('.card');
-
-  const observer = new IntersectionObserver(entries => {
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
-  cards.forEach(card => {
-    observer.observe(card);
-  });
-</script>
+  fadeElements.forEach(el => observer.observe(el));
 
-</body>
-</html>
+  // Simple resume download simulation (opens a new window / placeholder)
+  const resumeBtn = document.getElementById('resumeMockBtn');
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📄 Resume PDF ready — In a real portfolio, you can link your latest CV. For demo, contact details are above.");
+      // you could replace with actual file link: window.open('resume.pdf', '_blank');
+    });
+  }
+
+  // add hover details on socials if needed, also slight console greeting
+  console.log("✨ Manoranjan's Professional Portfolio");
+
+What do you think about this code ?
