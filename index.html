@@ -7,21 +7,25 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin:0;
       font-family:'Poppins',sans-serif;
       background:linear-gradient(135deg,#0f172a,#020617);
       color:#e2e8f0;
+      scroll-behavior:smooth;
     }
 
     header {
-      padding:50px 20px;
+      padding:60px 20px;
       text-align:center;
       animation: fadeIn 1s ease-in;
     }
 
-    h1 { margin:0; font-size:32px; }
+    h1 { margin:0; font-size:34px; }
     .subtitle { color:#38bdf8; margin-top:10px; }
 
     .container {
@@ -33,12 +37,18 @@
     .card {
       background:rgba(30,41,59,0.6);
       backdrop-filter:blur(12px);
-      padding:20px;
+      padding:22px;
       margin:20px 0;
       border-radius:16px;
       box-shadow:0 8px 25px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-      animation: slideUp 0.8s ease;
+      transition: all 0.4s ease;
+      opacity:0;
+      transform:translateY(40px);
+    }
+
+    .card.visible {
+      opacity:1;
+      transform:translateY(0);
     }
 
     .card:hover {
@@ -49,6 +59,9 @@
     h2 {
       border-left:4px solid #38bdf8;
       padding-left:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
     .projects {
@@ -96,11 +109,6 @@
       to {opacity:1;}
     }
 
-    @keyframes slideUp {
-      from {transform:translateY(20px); opacity:0;}
-      to {transform:translateY(0); opacity:1;}
-    }
-
   </style>
 </head>
 
@@ -108,54 +116,52 @@
 
 <header>
   <h1>B Manoranjan Patra</h1>
-  <p class="subtitle">Design Verification Engineer | SystemVerilog | UVM | PCIe | AXI</p>
+  <p class="subtitle">Design Verification Engineer</p>
 </header>
 
 <div class="container">
 
 <section class="card">
-  <h2>About Me</h2>
+  <h2><i class="fa-solid fa-user"></i> About Me</h2>
   <p>
     Design Verification Engineer with 3+ years of experience in pre-silicon verification using SystemVerilog and UVM. 
     Experienced in verifying complex SoC and IP-level designs with strong expertise in PCIe Gen4 and AXI protocols. 
-    Skilled in developing scalable verification environments, debugging RTL issues, and achieving functional coverage closure. 
-    Passionate about building robust verification solutions and solving complex hardware challenges.
+    Skilled in developing scalable verification environments, debugging RTL issues, and achieving functional coverage closure.
   </p>
 </section>
 
 <section class="card">
-  <h2>Projects</h2>
+  <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
 
   <div class="projects">
 
     <div class="project-card">
       <h3>HUDSON SoC Verification (ADI)</h3>
       <ul>
-        <li>Verified OTP memory functionality (programming, readback, security)</li>
+        <li>Verified OTP memory functionality</li>
         <li>Validated PINMUX signal routing</li>
-        <li>Verified GPIO controller (interrupts & direction control)</li>
-        <li>Performed regression, coverage analysis, and debugging</li>
+        <li>Verified GPIO controller behavior</li>
+        <li>Performed regressions & debugging</li>
       </ul>
     </div>
 
     <div class="project-card">
-      <h3>Dispatch Engine Verification (Wavecomp-MIPS)</h3>
+      <h3>Dispatch Engine Verification</h3>
       <ul>
-        <li>Developed UVM testbench for DMA descriptor verification</li>
-        <li>Verified scheduling and multi-cluster interactions</li>
-        <li>Implemented complex scenarios for functional coverage</li>
-        <li>Debugged corner cases and improved test reuse</li>
+        <li>Developed UVM testbench for DMA descriptors</li>
+        <li>Verified multi-cluster scheduling</li>
+        <li>Handled complex coverage scenarios</li>
+        <li>Debugged corner cases</li>
       </ul>
     </div>
 
     <div class="project-card">
       <h3>PCIe Gen4 Protocol Verification</h3>
       <ul>
-        <li>Verified Endpoint, Root Complex, Switch configurations</li>
-        <li>Worked on LTSSM state machine and link training</li>
-        <li>Handled TLP, DLLP, Ordered Sets (TS1/TS2)</li>
-        <li>Debugged protocol mismatches and ensured link stability</li>
-        <li>Analyzed waveform and validated compliance</li>
+        <li>Worked on LTSSM and link training</li>
+        <li>Handled TLP, DLLP, TS1/TS2 Ordered sets</li>
+        <li>Debugged protocol mismatches</li>
+        <li>Ensured link stability</li>
       </ul>
     </div>
 
@@ -163,7 +169,7 @@
 </section>
 
 <section class="card">
-  <h2>Skills</h2>
+  <h2><i class="fa-solid fa-screwdriver-wrench"></i> Skills</h2>
   <div class="skills">
     <span>SystemVerilog</span>
     <span>UVM</span>
@@ -171,18 +177,16 @@
     <span>AXI4</span>
     <span>RTL Debugging</span>
     <span>Functional Coverage</span>
+    <span>Code Coverage</span>
+    <span>GLS</span>
     <span>Python</span>
   </div>
 </section>
 
 <section class="card">
-  <h2>Contact</h2>
+  <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
   <p>Email: manoranjanmano111@gmail.com</p>
   <p>Phone: +91 8018598188</p>
-  <p>
-    <a href="#">LinkedIn</a> | 
-    <a href="#">GitHub</a>
-  </p>
 </section>
 
 </div>
@@ -190,6 +194,22 @@
 <footer>
   <p>© 2026 Manoranjan Patra</p>
 </footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+</script>
 
 </body>
 </html>
