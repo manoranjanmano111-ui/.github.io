@@ -14,8 +14,8 @@
     body {
       margin:0;
       font-family:'Poppins',sans-serif;
-      background:linear-gradient(135deg,#f5f5dc,#ffffff);
-      color:#1e293b;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      color:#e2e8f0;
       scroll-behavior:smooth;
     }
 
@@ -26,7 +26,11 @@
     }
 
     h1 { margin:0; font-size:34px; }
-    .subtitle { color:#38bdf8; margin-top:10px; }
+
+    .subtitle {
+      color:#14b8a6;
+      margin-top:10px;
+    }
 
     .container {
       max-width:1000px;
@@ -35,7 +39,7 @@
     }
 
     .card {
-      background:rgba(255,255,255,0.7);
+      background:rgba(30,41,59,0.7);
       backdrop-filter:blur(12px);
       padding:22px;
       margin:20px 0;
@@ -52,12 +56,12 @@
     }
 
     .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow:0 12px 30px rgba(56,189,248,0.2);
+      transform: translateY(-6px);
+      box-shadow:0 12px 30px rgba(20,184,166,0.2);
     }
 
     h2 {
-      border-left:4px solid #38bdf8;
+      border-left:4px solid #14b8a6;
       padding-left:10px;
       display:flex;
       align-items:center;
@@ -70,22 +74,21 @@
     }
 
     .project-card {
-  background: rgba(255,255,255,0.9);
-  color: #1e293b;
-  padding:15px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.05);
-  transition:0.3s;
-}
+      background:#1e293b;
+      padding:15px;
+      border-radius:12px;
+      border:1px solid rgba(20,184,166,0.3);
+      transition:0.3s;
+    }
 
     .project-card:hover {
-      border-color:#38bdf8;
+      border-color:#14b8a6;
       transform:scale(1.02);
     }
 
     .skills span {
       display:inline-block;
-      background: rgba(255,255,255,0.9);
+      background:#1e293b;
       margin:5px;
       padding:8px 12px;
       border-radius:20px;
@@ -94,7 +97,7 @@
     }
 
     .skills span:hover {
-      background:#38bdf8;
+      background:#14b8a6;
       color:#000;
     }
 
@@ -117,7 +120,7 @@
 
 <header>
   <h1>B Manoranjan Patra</h1>
-  <p class="subtitle">Design Verification Engineer</p>
+  <p class="subtitle">Design Verification Engineer | SystemVerilog | UVM | PCIe | AXI</p>
 </header>
 
 <div class="container">
@@ -142,7 +145,7 @@
         <li>Verified OTP memory functionality</li>
         <li>Validated PINMUX signal routing</li>
         <li>Verified GPIO controller behavior</li>
-        <li>Performed regressions & debugging</li>
+        <li>Performed regression & debugging</li>
       </ul>
     </div>
 
@@ -160,7 +163,7 @@
       <h3>PCIe Gen4 Protocol Verification</h3>
       <ul>
         <li>Worked on LTSSM and link training</li>
-        <li>Handled TLP, DLLP, TS1/TS2 Ordered sets</li>
+        <li>Handled TLP, DLLP, TS1/TS2</li>
         <li>Debugged protocol mismatches</li>
         <li>Ensured link stability</li>
       </ul>
@@ -178,8 +181,6 @@
     <span>AXI4</span>
     <span>RTL Debugging</span>
     <span>Functional Coverage</span>
-    <span>Code Coverage</span>
-    <span>GLS</span>
     <span>Python</span>
   </div>
 </section>
