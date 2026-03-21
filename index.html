@@ -4,26 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoranjan Patra | Design Verification Engineer</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body { margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#0f172a,#020617); color:#e2e8f0; }
-    header { padding:40px 20px; text-align:center; }
-    h1 { margin:0; font-size:30px; }
-    p.subtitle { color:#38bdf8; }
-    .container { max-width:950px; margin:auto; padding:20px; }
-    .card { background:rgba(30,41,59,0.7); backdrop-filter:blur(10px); padding:20px; margin:15px 0; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:transform 0.2s; }
-    .card:hover { transform:translateY(-5px); }
-    h2 { border-left:4px solid #38bdf8; padding-left:10px; }
-    a { color:#38bdf8; text-decoration:none; }
-    .skills span { display:inline-block; background:#1e293b; margin:5px; padding:8px 12px; border-radius:20px; font-size:12px; }
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#0f172a,#020617);
+      color:#e2e8f0;
+    }
 
-    .projects { display:grid; grid-template-columns:1fr; gap:15px; }
-    .project-card { background:#1e293b; padding:15px; border-radius:12px; border:1px solid rgba(56,189,248,0.3); }
-    .project-card h3 { margin-top:0; }
+    header {
+      padding:50px 20px;
+      text-align:center;
+      animation: fadeIn 1s ease-in;
+    }
 
-    footer { text-align:center; padding:20px; opacity:0.7; }
+    h1 { margin:0; font-size:32px; }
+    .subtitle { color:#38bdf8; margin-top:10px; }
+
+    .container {
+      max-width:1000px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .card {
+      background:rgba(30,41,59,0.6);
+      backdrop-filter:blur(12px);
+      padding:20px;
+      margin:20px 0;
+      border-radius:16px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      animation: slideUp 0.8s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow:0 12px 30px rgba(56,189,248,0.2);
+    }
+
+    h2 {
+      border-left:4px solid #38bdf8;
+      padding-left:10px;
+    }
+
+    .projects {
+      display:grid;
+      gap:15px;
+    }
+
+    .project-card {
+      background:#1e293b;
+      padding:15px;
+      border-radius:12px;
+      border:1px solid rgba(56,189,248,0.3);
+      transition:0.3s;
+    }
+
+    .project-card:hover {
+      border-color:#38bdf8;
+      transform:scale(1.02);
+    }
+
+    .skills span {
+      display:inline-block;
+      background:#1e293b;
+      margin:5px;
+      padding:8px 12px;
+      border-radius:20px;
+      font-size:12px;
+      transition:0.3s;
+    }
+
+    .skills span:hover {
+      background:#38bdf8;
+      color:#000;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      opacity:0.7;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+
+    @keyframes slideUp {
+      from {transform:translateY(20px); opacity:0;}
+      to {transform:translateY(0); opacity:1;}
+    }
+
   </style>
 </head>
+
 <body>
 
 <header>
@@ -36,7 +116,10 @@
 <section class="card">
   <h2>About Me</h2>
   <p>
-    Design Verification Engineer with over 3 years of experience specializing in pre-silicon verification using SystemVerilog and UVM. Proven expertise in verifying complex SoC and IP-level designs, with strong exposure to high-speed protocols such as PCIe and AXI. Skilled in developing scalable verification environments, debugging RTL issues, and driving functional coverage closure. Passionate about building robust verification solutions and continuously improving verification methodologies.
+    Design Verification Engineer with 3+ years of experience in pre-silicon verification using SystemVerilog and UVM. 
+    Experienced in verifying complex SoC and IP-level designs with strong expertise in PCIe Gen4 and AXI protocols. 
+    Skilled in developing scalable verification environments, debugging RTL issues, and achieving functional coverage closure. 
+    Passionate about building robust verification solutions and solving complex hardware challenges.
   </p>
 </section>
 
@@ -46,38 +129,37 @@
   <div class="projects">
 
     <div class="project-card">
-      <h3>HUDSON SoC Verification (Client: ADI)</h3>
+      <h3>HUDSON SoC Verification (ADI)</h3>
       <ul>
-        <li>Verified OTP (One-Time Programmable memory) functionality</li>
-        <li>Worked on PINMUX configuration validation</li>
-        <li>Verified GPIO controller including interrupts and direction control</li>
-        <li>Performed IP and SoC level verification using UVM methodology</li>
+        <li>Verified OTP memory functionality (programming, readback, security)</li>
+        <li>Validated PINMUX signal routing</li>
+        <li>Verified GPIO controller (interrupts & direction control)</li>
+        <li>Performed regression, coverage analysis, and debugging</li>
       </ul>
     </div>
 
     <div class="project-card">
-      <h3>Dispatch Engine Verification</h3>
+      <h3>Dispatch Engine Verification (Wavecomp-MIPS)</h3>
       <ul>
-        <li>Verified dispatch engine handling multiple request queues and scheduling</li>
-        <li>Developed UVM components including driver, monitor, and scoreboard</li>
-        <li>Implemented checks for correct dispatch ordering and arbitration logic</li>
-        <li>Debugged corner cases related to data flow and timing issues</li>
+        <li>Developed UVM testbench for DMA descriptor verification</li>
+        <li>Verified scheduling and multi-cluster interactions</li>
+        <li>Implemented complex scenarios for functional coverage</li>
+        <li>Debugged corner cases and improved test reuse</li>
       </ul>
     </div>
 
     <div class="project-card">
-      <h3>PCIe Protocol Verification</h3>
+      <h3>PCIe Gen4 Protocol Verification</h3>
       <ul>
-        <li>Worked on PCIe Transaction Layer Packet (TLP) validation and checking</li>
-        <li>Verified LTSSM state transitions and link training sequences</li>
-        <li>Analyzed completion packets (with/without data) and error handling</li>
-        <li>Handled ordered sets (TS1/TS2), link initialization, and lane negotiation</li>
-        <li>Debugged protocol-level issues across Transaction and Data Link layers</li>
+        <li>Verified Endpoint, Root Complex, Switch configurations</li>
+        <li>Worked on LTSSM state machine and link training</li>
+        <li>Handled TLP, DLLP, Ordered Sets (TS1/TS2)</li>
+        <li>Debugged protocol mismatches and ensured link stability</li>
+        <li>Analyzed waveform and validated compliance</li>
       </ul>
     </div>
 
   </div>
-
 </section>
 
 <section class="card">
@@ -97,7 +179,10 @@
   <h2>Contact</h2>
   <p>Email: manoranjanmano111@gmail.com</p>
   <p>Phone: +91 8018598188</p>
-  <p><a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+  <p>
+    <a href="#">LinkedIn</a> | 
+    <a href="#">GitHub</a>
+  </p>
 </section>
 
 </div>
