@@ -120,7 +120,7 @@
 
 <header>
   <h1>B Manoranjan Patra</h1>
-  <p class="subtitle">Design Verification Engineer | SystemVerilog | UVM | PCIe | AXI</p>
+  <p class="subtitle">Design Verification Engineer</p>
 </header>
 
 <div class="container">
@@ -140,7 +140,11 @@
   <div class="projects">
 
     <div class="project-card">
-      <h3>HUDSON SoC Verification (ADI)</h3>
+      <h3>GRANULE SoC Verification</h3>
+      <p>
+      GRANULE is a wearables SoC comprising multiple subsystems including processor, Bluetooth, and power management units. 
+      The design integrates these components to enable efficient audio processing and system functionality. 
+      </p>
       <ul>
         <li>Verified OTP memory functionality</li>
         <li>Validated PINMUX signal routing</li>
@@ -150,7 +154,12 @@
     </div>
 
     <div class="project-card">
-      <h3>Dispatch Engine Verification</h3>
+      <h3>DEN(Dispatch Engine Verification)</h3>
+      <p>
+      DEN is an IP that acts as an interface between the processor and the DMA controller. 
+      It manages work requests by queuing and dispatching transactions within the HELLCAT/TRITON chiplet architecture.
+      Work requests are transferred as 1024-bit data packets between processor and DMA.
+      </p>
       <ul>
         <li>Developed UVM testbench for DMA descriptors</li>
         <li>Verified multi-cluster scheduling</li>
@@ -160,14 +169,19 @@
     </div>
 
     <div class="project-card">
-      <h3>PCIe Gen4 Protocol Verification</h3>
-      <ul>
-        <li>Worked on LTSSM and link training</li>
-        <li>Handled TLP, DLLP, TS1/TS2</li>
-        <li>Debugged protocol mismatches</li>
-        <li>Ensured link stability</li>
-      </ul>
-    </div>
+  <h3>PCIe Gen4 Protocol Verification</h3>
+
+  <p>
+    Worked on PCIe Gen4 Verification IP supporting 16 GT/s per lane for high-speed back-to-back communication.
+  </p>
+
+  <ul>
+    <li>Verified LTSSM state transitions and link training sequences</li>
+    <li>Handled TLP, DLLP, and Ordered Sets (TS1/TS2)</li>
+    <li>Debugged protocol mismatches across Transaction and Data Link layers</li>
+    <li>Ensured link stability and compliance through waveform analysis</li>
+  </ul>
+</div>
 
   </div>
 </section>
@@ -181,6 +195,8 @@
     <span>AXI4</span>
     <span>RTL Debugging</span>
     <span>Functional Coverage</span>
+    <span>Code Coverage</span>
+    <span>GLS</span>
     <span>Python</span>
   </div>
 </section>
