@@ -27,6 +27,24 @@
       scroll-behavior: smooth;
     }
 
+    <!-- Navigation Header -->
+<nav class="nav-header" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">MP</a>
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
     /* animated gradient orb background */
     .bg-orb {
       position: fixed;
@@ -171,7 +189,7 @@
       border-color: #14b8a6;
     }
 
-    /* cards grid / style */
+    /* cards grid /  */
     .section {
       margin: 4rem 0;
     }
@@ -391,8 +409,148 @@
         padding: 1.4rem;
       }
     }
+
+
+    /* Navigation Header Styles */
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(5, 11, 26, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-header.scrolled {
+  padding: 0.7rem 2rem;
+  background: rgba(5, 11, 26, 0.98);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #14b8a6;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.nav-links li a:hover {
+  color: #14b8a6;
+}
+
+.nav-links li a.active {
+  color: #14b8a6;
+  border-bottom: 2px solid #14b8a6;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-container {
+    flex-wrap: wrap;
+  }
+}
   </style>
 </head>
+
+  // Navigation Header Functionality
+const navbar = document.getElementById('navbar');
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-link');
+
+// Sticky nav on scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Mobile menu toggle
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+}
+
+// Close mobile menu when clicking a link
+navItems.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+  });
+});
+
+// Active link highlighting on scroll
+const sections = document.querySelectorAll('section, .hero, .section');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navItems.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
 <body>
 <div class="bg-orb"></div>
 
