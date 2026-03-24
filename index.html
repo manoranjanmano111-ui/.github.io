@@ -27,24 +27,6 @@
       scroll-behavior: smooth;
     }
 
-    <!-- Navigation Header -->
-<nav class="nav-header" id="navbar">
-  <div class="nav-container">
-    <a href="#" class="nav-logo">MP</a>
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
     /* animated gradient orb background */
     .bg-orb {
       position: fixed;
@@ -382,7 +364,7 @@
 
     /* fade-up animation */
     .fade-up {
-      opacity: 1;
+      opacity: 0;
       transform: translateY(35px);
       transition: opacity 0.8s ease, transform 0.7s ease;
     }
@@ -410,105 +392,126 @@
       }
     }
 
-
     /* Navigation Header Styles */
-.nav-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(5, 11, 26, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(20, 184, 166, 0.3);
-  z-index: 1000;
-  padding: 1rem 2rem;
-  transition: all 0.3s ease;
-}
+    .nav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(5, 11, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      transition: all 0.3s ease;
+    }
 
-.nav-header.scrolled {
-  padding: 0.7rem 2rem;
-  background: rgba(5, 11, 26, 0.98);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
+    .nav-header.scrolled {
+      padding: 0.7rem 2rem;
+      background: rgba(5, 11, 26, 0.98);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
 
-.nav-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.nav-logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #14b8a6;
-  text-decoration: none;
-}
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #14b8a6;
+      text-decoration: none;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-.nav-links li a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-  font-size: 0.95rem;
-}
+    .nav-links li a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
 
-.nav-links li a:hover {
-  color: #14b8a6;
-}
+    .nav-links li a:hover {
+      color: #14b8a6;
+    }
 
-.nav-links li a.active {
-  color: #14b8a6;
-  border-bottom: 2px solid #14b8a6;
-}
+    .nav-links li a.active {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
+    }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  .nav-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem 0;
-    gap: 1rem;
-  }
-  .nav-links.show {
-    display: flex;
-  }
-  .nav-container {
-    flex-wrap: wrap;
-  }
-}
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+        gap: 1rem;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-container {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Offset for fixed header */
+    html {
+      scroll-padding-top: 80px;
+    }
   </style>
 </head>
 
-  
 <body>
 <div class="bg-orb"></div>
 
+<!-- Navigation Header -->
+<nav class="nav-header" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">MP</a>
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container">
   <!-- Hero Section -->
-  <div class="hero fade-up">
+  <div class="hero fade-up" id="home">
     <div class="hero-badge">
       <i class="fa-regular fa-circle-check"></i> Open to opportunities
     </div>
@@ -526,8 +529,8 @@
     </div>
   </div>
 
-  <!-- About Me (Enhanced) -->
-  <div class="section fade-up">
+  <!-- About Me -->
+  <div class="section fade-up" id="about">
     <div class="section-title">
       <i class="fa-solid fa-microchip"></i>
       <span>About Me</span>
@@ -541,8 +544,8 @@
     </div>
   </div>
 
-  <!-- Projects Section Enhanced -->
-  <div class="section fade-up">
+  <!-- Projects Section -->
+  <div class="section fade-up" id="projects">
     <div class="section-title">
       <i class="fa-solid fa-diagram-project"></i>
       <span>Featured Projects</span>
@@ -594,7 +597,7 @@
   </div>
 
   <!-- Experience & Key Achievements -->
-  <div class="section fade-up">
+  <div class="section fade-up" id="experience">
     <div class="section-title">
       <i class="fa-solid fa-briefcase"></i>
       <span>Experience Highlights</span>
@@ -614,8 +617,8 @@
     </div>
   </div>
 
-  <!-- Skills Section with Category Style -->
-  <div class="section fade-up">
+  <!-- Skills Section -->
+  <div class="section fade-up" id="skills">
     <div class="section-title">
       <i class="fa-solid fa-screwdriver-wrench"></i>
       <span>Technical Arsenal</span>
@@ -629,20 +632,20 @@
         <span class="skill-tag">RTL Debug (Simvision)</span>
         <span class="skill-tag">Functional Coverage</span>
         <span class="skill-tag">Code Coverage</span>
-        <span class="skill-tag">GLS </span>
-        <span class="skill-tag">Python </span>
+        <span class="skill-tag">GLS</span>
+        <span class="skill-tag">Python</span>
         <span class="skill-tag">Git / Perforce(Helix core)</span>
         <span class="skill-tag">Formal Verification</span>
         <span class="skill-tag">Assertion (SVA)</span>
       </div>
       <div style="margin-top: 1.5rem; font-size:0.9rem; background: rgba(20,184,166,0.08); border-radius: 20px; padding: 0.7rem 1rem;">
-        <i class="fa-regular fa-circle-check" style="color:#14b8a6;"></i> <strong>Tools:</strong> Simvision,Vmanager,Synopsys VCS,Verdi, Jira
+        <i class="fa-regular fa-circle-check" style="color:#14b8a6;"></i> <strong>Tools:</strong> Simvision, Vmanager, Synopsys VCS, Verdi, Jira
       </div>
     </div>
   </div>
 
   <!-- Contact & Resume CTA -->
-  <div class="section fade-up">
+  <div class="section fade-up" id="contact">
     <div class="section-title">
       <i class="fa-solid fa-address-card"></i>
       <span>Connect with me</span>
@@ -678,7 +681,7 @@
   </div>
 
   <footer>
-    <p>© 2026 B Manoranjan Patra | Design Verification Engineer </p>
+    <p>© 2026 B Manoranjan Patra | Design Verification Engineer</p>
   </footer>
 </div>
 
@@ -758,3 +761,5 @@
 
   console.log("✨ Manoranjan's Professional Portfolio — Navigation active");
 </script>
+</body>
+</html>
